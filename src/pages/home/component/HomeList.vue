@@ -8,7 +8,7 @@
     </ul>
     </div>
 </template>
-
+<!--不影响其他的页面-->
 <style lang="stylus" scoped>
 //rem 
 .HomeList
@@ -35,7 +35,9 @@
 </style>
 
 <script>
+  import { MessageBox} from 'mint-ui'
 export default {
+
   methods: {
       xuangou:function(){
       this.$router.push({path:"choose"})

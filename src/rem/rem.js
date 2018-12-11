@@ -1,4 +1,5 @@
-(function flexible (window, document) {
+
+  (function flexible (window, document) {
   var docEl = document.documentElement
   var dpr = window.devicePixelRatio || 1
 
@@ -15,7 +16,7 @@
   setBodyFontSize();
   // set 1rem = viewWidth / 10
   function setRemUnit () {
-    var rem = docEl.clientWidth / 10
+    var rem = docEl.clientWidth / 10;
     docEl.style.fontSize = rem + 'px'
   }
   setRemUnit()
@@ -41,3 +42,4 @@
     docEl.removeChild(fakeBody)
   }
 }(window, document))
+

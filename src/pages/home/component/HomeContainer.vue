@@ -11,7 +11,7 @@
                 </div>
                 <p class="name">{{todo.homeName}}</p>
                 <p class="nametwo">{{todo.homeNametwo}}</p>
-                <p class="Price">￥{{todo.homePrice}}</p> 
+                <p class="Price">￥{{todo.homePrice}}</p>
               </div>
             </li>
           </ul>

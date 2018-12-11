@@ -41,10 +41,19 @@
     data(){
       return {
         active:'home',
+
       }
     },
+    // 用钩子函数所有的dom加载完成后才执行相当于自执行
     mounted(){
       this.active = this.$route.path.slice(1);
+      // console.log(typeof (this.active))
+      if (this.active==""){
+       this.active='home'
+      }else {
+        this.active=this.$route.path.slice(1)
+      }
+      // console.log(this.active)
     }
   }
 </script>

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import SuccessHeader from '../common/header'
+import SuccessHeader from './headerone'
 export default {
   data(){
     return{

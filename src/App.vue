@@ -5,6 +5,8 @@
 </template>
 
 <script>
+  // 函数自执行调节html的大小来试用不同的屏幕，引入直接调用的js不用export，只有试用js里面的方法时试用export，
+  // rem加js调节HTML的大小不用于媒体查询
 import rem from './rem/rem.js'
 export default {
   name: 'app',

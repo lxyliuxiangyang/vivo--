@@ -5,15 +5,14 @@
       <Home-Swipe></Home-Swipe>
       <Home-List></Home-List>
       <Home-Container :todos="todos"></Home-Container>
+    <!--绑定数据prop接收-->
       <Home-Footer></Home-Footer>
   </div>
-  </div>
-</div>
-
 </template>
 
 <script>
 import { mapState,mapMutations,mapGetters  } from 'vuex';
+// 简化vuex的操作
 import { Swipe, SwipeItem } from 'mint-ui';
 import { MessageBox } from 'mint-ui';
 import HomeSwipe from './component/HomeSwipe';
@@ -35,13 +34,15 @@ export default {
     HomeFooter,
   },
   mounted:function(){
+
     this.getData()
+
   },
   methods:{
     getData:function(){
       var _this=this
       axios.get("/static/ceshi.json").then(function(res){
-        console.log(res.data)
+        // console.log(res.data.data.home[0])
         _this.todos=res.data.data.home
       })
     }
@@ -50,6 +51,9 @@ export default {
 </script>
 
 <style>
+  /*
+  styles层级标签不嵌套 互不影响
+  */
   .Home{
     border-bottom: 10px;
   }
