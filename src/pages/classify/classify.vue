@@ -1,6 +1,6 @@
 <template>
 <div>
-<Classify-Header title="商品分类"></Classify-Header>
+<Classify-Headerone title="商品分类"></Classify-Headerone>
   <div class="calssify-con" >
         <div class="calssify-left" ref="wrapper">
             <ul class="calssify-left-ul" >
@@ -20,11 +20,11 @@
     </div>
 <v-footer></v-footer>
 </div>
-  
+
 </template>
 
 <script>
-import ClassifyHeader from "../../common/header";
+import ClassifyHeader from "../../common/headerone";
 import footer from "../../pages/footer";
 import axios from "axios";
 import { mapGetters } from "vuex";
