@@ -42,7 +42,6 @@
     data(){
       return {
         active:'home',
-
       }
     },
     // 用钩子函数所有的dom加载完成后才执行相当于自执行
@@ -54,7 +53,7 @@
       }else {
         this.active=this.$route.path.slice(1)
       }
-      // console.log(this.$route.meta)
+      console.log(this.$route.meta)
     }
   }
 </script>
