@@ -1,6 +1,6 @@
 <template>
 <div>
-<Classify-Headerone title="商品分类"></Classify-Headerone>
+<Classify-Header title="商品分类"></Classify-Header>
   <div class="calssify-con" >
         <div class="calssify-left" ref="wrapper">
             <ul class="calssify-left-ul" >
@@ -9,6 +9,7 @@
                 </li>
             </ul>
         </div>
+    <!--右侧-->
         <div class="calssify-rigth" ref="wrapper2">
             <ul class="calssify-left-ul">
                 <li v-for="(list,index) in right.rigth_data" :key="index" @click="goDetails(list.id)">
@@ -17,6 +18,8 @@
                 </li>
             </ul>
         </div>
+
+
     </div>
 <v-footer></v-footer>
 </div>
@@ -32,7 +35,7 @@ export default {
   data() {
     return {
       left: [],
-      rigth: [],
+      right: [],
       list: [],
       ce: [],
       key2: "",
@@ -54,14 +57,20 @@ export default {
   },
   created() {
     var _this = this;
-    axios.get("/static/ceshi.json").then(function(res) {
-      console.log(res)
-     _this.left = res.data.data.classify.left;
-      _this.list = res.data.data.classify.right;
-      _this.right = _this.list[0];
-    });
+  axios.get("/static/ceshi.json").then(function(res) {
+    // console.log(res)
+    _this.left = res.data.data.classify.left;
+    _this.list = res.data.data.classify.right;
+    _this.right = _this.list[0];
+    // console.log( _this.right.rigth_data)
+})
+
+
+
+
   },
   methods: {
+
     qiehuan(index) {
       var _this = this;
       _this.classifyIndex = index;

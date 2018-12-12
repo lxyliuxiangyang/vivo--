@@ -37,6 +37,7 @@ export default {
 
     this.getData()
 
+
   },
   methods:{
     getData:function(){
@@ -45,6 +46,7 @@ export default {
         // console.log(res.data.data.home[0])
         _this.todos=res.data.data.home
       })
+      // console.log(_this.$router.meta)
     }
   }
 }

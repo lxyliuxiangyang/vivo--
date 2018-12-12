@@ -1,6 +1,7 @@
 <template>
   <div id="bottom">
     <ul class="bottom-ul">
+      <!--//tag=li 可以使li标签起到也具有a跳转的效果-->
       <router-link  to="/home" tag="li">
         <div class="index">
           <i class="iconfont icon-shouye_xuanzhong" style="color:#179dfe" v-if="active ==='home'"></i>
@@ -53,7 +54,7 @@
       }else {
         this.active=this.$route.path.slice(1)
       }
-      // console.log(this.active)
+      // console.log(this.$route.meta)
     }
   }
 </script>
