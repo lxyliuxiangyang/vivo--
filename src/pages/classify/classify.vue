@@ -52,6 +52,7 @@ export default {
   //         this.scroll = new BScroll(this.$refs.wrapper2, {})
   //       })
   //   },
+  // computed计算属性
   computed: {
     ...mapGetters(["this.$store.state.sindex"])
   },
@@ -62,20 +63,16 @@ export default {
     _this.left = res.data.data.classify.left;
     _this.list = res.data.data.classify.right;
     _this.right = _this.list[0];
-    // console.log( _this.right.rigth_data)
 })
-
-
-
-
   },
   methods: {
-
+// 传入的索引
     qiehuan(index) {
       var _this = this;
       _this.classifyIndex = index;
       _this.right = _this.list[index];
     },
+    // 详情页
     goDetails(id) {
       console.log(id);
       this.$router.push({

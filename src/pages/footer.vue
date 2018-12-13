@@ -53,7 +53,7 @@
       }else {
         this.active=this.$route.path.slice(1)
       }
-      console.log(this.$route.meta)
+
     }
   }
 </script>

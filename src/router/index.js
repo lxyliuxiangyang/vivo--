@@ -4,6 +4,7 @@ import Home from '@/pages/home/home'
 import Choose from '@/pages/choose'
 import parts from '@/pages/parts'
 import classify from "@/pages/classify/classify"
+import goodDetail from '@/pages/detail/goodDetail'
 import success from '../common/success'
 Vue.use(Router)
 
@@ -14,6 +15,12 @@ export default new Router({
     {path:'/choose',name:'choose',component:Choose},
     {path:"/parts",name:'parts',component:parts},
     { path: '/classify',name:'classify',component:classify},
+    {
+      path: '/goodDetail',
+      name: 'goodDetail',
+      component: goodDetail,
+      meta:{index:0}
+    },
 
 
   ],
