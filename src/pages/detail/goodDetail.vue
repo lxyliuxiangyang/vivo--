@@ -1,16 +1,16 @@
 <template>
 <div class="goodDetail" id="transitionName">
     <Detail-Header title="商品详情"></Detail-Header>
-      <!--<div class="goodDetailList">-->
-            <!--<ul style="background: white;">-->
-                <!--<li v-for="(goodDetail,index) in goodDetails" :key="index">-->
-                    <!--<div class="goodDetaiSwipe">-->
-                        <!--<mt-swipe :auto="4000">-->
-                            <!--<mt-swipe-item v-for="list in goodDetail.homeSwipe"> -->
-                                <!--<img :src="list.swipe" alt="图片">-->
-                            <!--</mt-swipe-item>-->
-                        <!--</mt-swipe>-->
-                    <!--</div>-->
+      <div class="goodDetailList">
+            <ul style="background: white;">
+                <li v-for="(goodDetail,index) in goodDetails" :key="index">
+                    <div class="goodDetaiSwipe">
+                        <mt-swipe :auto="4000">
+                            <mt-swipe-item v-for="list in goodDetail.homeSwipe">
+                                <img :src="list.swipe" alt="图片">
+                            </mt-swipe-item>
+                        </mt-swipe>
+                    </div>
                     <!--<div class="goodDetailMain">-->
                         <!--<div class="gooDetailNumber">商品编号：{{goodDetail.number}}</div>-->
                         <!--<div class="goodDetailName">{{goodDetail.homeName}}</div>-->
@@ -31,68 +31,69 @@
                         <!--</div>-->
                     <!--</div>-->
 
+                    <!--详情蚂蚁支付-->
                     <!--<Detail-Layer></Detail-Layer>-->
-                  <!---->
-                    <!--&lt;!&ndash;<div class="goodDetailBox">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<mt-navbar v-model="selected" >&ndash;&gt;-->
-                            <!--&lt;!&ndash;<mt-tab-item id="tab-container1">图文详情</mt-tab-item>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<mt-tab-item id="tab-container2">参数</mt-tab-item>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</mt-navbar>&ndash;&gt;-->
+
+                    <!--<div class="goodDetailBox">-->
+                        <!--<mt-navbar v-model="selected" >-->
+                            <!--<mt-tab-item id="tab-container1">图文详情</mt-tab-item>-->
+                            <!--<mt-tab-item id="tab-container2">参数</mt-tab-item>-->
+                        <!--</mt-navbar>-->
 
 
-                        <!--&lt;!&ndash;<mt-tab-container v-model="selected" swipeable>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<mt-tab-container-item id="tab-container1">&ndash;&gt;-->
-                               <!--&lt;!&ndash;<div class="goodDetailImg">&ndash;&gt;-->
-                                   <!--&lt;!&ndash;<p v-for="Image in goodDetail.Images">&ndash;&gt;-->
-                                       <!--&lt;!&ndash;<img v-bind:src="Image.one" alt="详情图片">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</mt-tab-container-item>&ndash;&gt;-->
+                        <!--<mt-tab-container v-model="selected" swipeable>-->
+                            <!--<mt-tab-container-item id="tab-container1">-->
+                               <!--<div class="goodDetailImg">-->
+                                   <!--<p v-for="Image in goodDetail.Images">-->
+                                       <!--<img v-bind:src="Image.one" alt="详情图片">-->
+                                    <!--</p>-->
+                                <!--</div>-->
+                            <!--</mt-tab-container-item>-->
 
-                            <!--&lt;!&ndash;<mt-tab-container-item id="tab-container2">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="peizhi" v-html="goodDetail.homePeizhi"></div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</mt-tab-container-item>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</mt-tab-container>&ndash;&gt;-->
+                            <!--<mt-tab-container-item id="tab-container2">-->
+                                <!--<div class="peizhi" v-html="goodDetail.homePeizhi"></div>-->
+                            <!--</mt-tab-container-item>-->
+                        <!--</mt-tab-container>-->
 
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="goodDetailFooter">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="left">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div class="cart">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="cartlength">{{cartlength}}</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<img src="http://p6563v2ck.bkt.clouddn.com/%E8%B4%AD%E7%89%A9%E8%BD%A6.png" >&ndash;&gt;-->
-                                <!--&lt;!&ndash;<span>购物车</span>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div class="collection" >&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="collection-box" @click="addCollection(goodDetail)"  v-show="!$store.state.ces">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<i class="iconfont icon-collection"></i>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<span>收藏</span>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="collection-box" @click="addCollection(goodDetail)"  v-show="$store.state.ces">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<i class="iconfont icon-shoucangxuanzhong1" style="color:red"></i>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<span style="color:red">取消</span>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div class="shop">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<img src="http://p6563v2ck.bkt.clouddn.com/%E5%BA%97%E9%93%BA_2.png" >&ndash;&gt;-->
-                                <!--&lt;!&ndash;&lt;!&ndash; <i class="iconfont icon-xuanzekuangxuanzhong" v-show="!$store.state.collection"></i>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<i class="iconfont icon-xuanzekuangxuanzhong" v-show="$store.state.collection" style="color:red"></i> &ndash;&gt;&ndash;&gt;-->
-                                <!--&lt;!&ndash;<span>店铺</span>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="rigth">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div class="add">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<a href="javascript:void(0);" @click="add(goodDetail)">加入购物车</a>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div class="purchase">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<a href="javascript:void(0);" @click="pay(goodDetail.id,goodDetail.homeValue)">提交订单</a>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                       <!--&lt;!&ndash;&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!---->
-                <!--</li>-->
-            <!--</ul>-->
-      <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="goodDetailFooter">-->
+                        <!--<div class="left">-->
+                            <!--<div class="cart">-->
+                                <!--<div class="cartlength">{{cartlength}}</div>-->
+                                <!--<img src="http://p6563v2ck.bkt.clouddn.com/%E8%B4%AD%E7%89%A9%E8%BD%A6.png" >-->
+                                <!--<span>购物车</span>-->
+                            <!--</div>-->
+                            <!--<div class="collection" >-->
+                                <!--<div class="collection-box" @click="addCollection(goodDetail)"  v-show="!$store.state.ces">-->
+                                    <!--<i class="iconfont icon-collection"></i>-->
+                                    <!--<span>收藏</span>-->
+                                <!--</div>-->
+                                <!--<div class="collection-box" @click="addCollection(goodDetail)"  v-show="$store.state.ces">-->
+                                    <!--<i class="iconfont icon-shoucangxuanzhong1" style="color:red"></i>-->
+                                    <!--<span style="color:red">取消</span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="shop">-->
+                                <!--<img src="http://p6563v2ck.bkt.clouddn.com/%E5%BA%97%E9%93%BA_2.png" >-->
+                              <!--<i class="iconfont icon-xuanzekuangxuanzhong" v-show="!$store.state.collection"></i>-->
+                              <!--<i class="iconfont icon-xuanzekuangxuanzhong" v-show="$store.state.collection" style="color:red"></i>-->
+                              <!--<span>店铺</span>-->
+                              <!--</div>-->
+                              <!--</div>-->
+                              <!--<div class="rigth">-->
+                              <!--<div class="add">-->
+                              <!--<a href="javascript:void(0);" @click="add(goodDetail)">加入购物车</a>-->
+                              <!--</div>-->
+                              <!--<div class="purchase">-->
+                              <!--<a href="javascript:void(0);" @click="pay(goodDetail.id,goodDetail.homeValue)">提交订单</a>-->
+                              <!--</div>-->
+                              <!--</div>-->
+
+                    <!--</div>-->
+
+                </li>
+            </ul>
+      </div>
   </div>
 </template>
 
@@ -100,22 +101,22 @@
 import { Toast,MessageBox,Navbar,TabItem,TabContainer,TabContainerItem } from "mint-ui";
 import { mapGetters, mapMutations } from "vuex";
 import DetailHeader from "./component/DetailHeader";
-// import DetailLayer from "./component/DetailLayer";
+import DetailLayer from "./component/DetailLayer";
 import axios from "axios";
 export default {
   name: "goodDetail",
-  // data() {
-  //   return {
-  //     active: "1",
-  //     goodDetailHeader: "商品详情",
-  //     selected: "tab-container1",
-  //     goodDetails: [],
-  //     cartlength: 0
-  //   };
-  // },
+  data() {
+    return {
+      active: "1",
+      goodDetailHeader: "商品详情",
+      selected: "tab-container1",
+      goodDetails: [],
+      cartlength: 0
+    };
+  },
   components: {
     DetailHeader,
-    // DetailLayer
+    DetailLayer
   },
   // computed: {
   //   paid: function() {
@@ -139,26 +140,29 @@ export default {
   //     this.cartlength = this.$store.state.carts.length;
   //   }
   // },
-  // created() {
-  //   var _this = this;
-  //   var id = this.$route.query.id;
-  //   axios.get("/static/ceshi.json").then(res => {
-  //     for (var i = 0; i < res.data.data.home.length;i++){
-  //       if (res.data.data.home[i].id == id ) {
-  //           _this.goodDetails.push(res.data.data.home[i]);
-  //       }
-  //     }
-  //   });
-  //
-  //   axios.get("/static/ceshi.json").then(res => {
-  //     for (var i = 0; i < res.data.data.set.length;i++){
-  //       if (res.data.data.set[i].id == id ) {
-  //           _this.goodDetails.push(res.data.data.set[i]);
-  //       }
-  //     }
-  //   });
-  //
-  // },
+  created() {
+    var _this = this;
+    // 获取上个页面的传入的参数id
+    var id = this.$route.query.id;
+    axios.get("/static/ceshi.json").then(res => {
+
+      for (var i = 0; i < res.data.data.home.length;i++){
+        if (res.data.data.home[i].id == id ) {
+            _this.goodDetails.push(res.data.data.home[i]);
+            console.log(_this.goodDetails)
+        }
+      }
+    });
+
+    axios.get("/static/ceshi.json").then(res => {
+      for (var i = 0; i < res.data.data.set.length;i++){
+        if (res.data.data.set[i].id == id ) {
+            _this.goodDetails.push(res.data.data.set[i]);
+        }
+      }
+    });
+
+  },
   //
   // methods: {
   //   addCollection(index) {
