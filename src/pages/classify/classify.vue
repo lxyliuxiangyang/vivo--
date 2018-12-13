@@ -63,6 +63,7 @@ export default {
     _this.left = res.data.data.classify.left;
     _this.list = res.data.data.classify.right;
     _this.right = _this.list[0];
+    console.log(_this.list)
 })
   },
   methods: {

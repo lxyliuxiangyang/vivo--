@@ -6,7 +6,7 @@
                 <li v-for="(goodDetail,index) in goodDetails" :key="index">
                     <div class="goodDetaiSwipe">
                         <mt-swipe :auto="4000">
-                            <mt-swipe-item v-for="list in goodDetail.homeSwipe">
+                            <mt-swipe-item v-for="(list,index) in goodDetail.homeSwipe" :key="index">
                                 <img :src="list.swipe" alt="图片">
                             </mt-swipe-item>
                         </mt-swipe>
@@ -110,7 +110,7 @@ export default {
       active: "1",
       goodDetailHeader: "商品详情",
       selected: "tab-container1",
-      goodDetails: [],
+      goodDetails:[],
       cartlength: 0
     };
   },
@@ -149,7 +149,7 @@ export default {
       for (var i = 0; i < res.data.data.home.length;i++){
         if (res.data.data.home[i].id == id ) {
             _this.goodDetails.push(res.data.data.home[i]);
-            console.log(_this.goodDetails)
+            console.log( _this.goodDetails)
         }
       }
     });
