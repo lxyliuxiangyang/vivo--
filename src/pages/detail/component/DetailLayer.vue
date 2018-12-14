@@ -1,5 +1,6 @@
 <template>
     <div>
+      <!--通过点击控制show的的值-->
         <div class="category"  @click="show=!show">
             <div class="category-con">
                 <i class="iconfont icon-icon--"></i>
@@ -14,6 +15,7 @@
                 <i class="iconfont icon-youjiantou"></i>
             </div>
         </div>
+      <!--添加动画-->
          <transition name="fade">
             <div class="boxbox" v-show="show" @click="close">
                 <div class="layer" v-show="show">
@@ -175,6 +177,7 @@ export default {
     
 
 
+          //vue过渡动画
 .fade-enter-active, .fade-leave-active {
     transition: all 0.3s ease;
 }

@@ -4,6 +4,7 @@
       <div class="goodDetailList">
             <ul style="background: white;">
                 <li v-for="(goodDetail,index) in goodDetails" :key="index">
+                  <!--商品详情轮播图-->
                     <div class="goodDetaiSwipe">
                         <mt-swipe :auto="4000">
                             <mt-swipe-item v-for="(list,index) in goodDetail.homeSwipe" :key="index">
@@ -11,28 +12,30 @@
                             </mt-swipe-item>
                         </mt-swipe>
                     </div>
-                    <!--<div class="goodDetailMain">-->
-                        <!--<div class="gooDetailNumber">商品编号：{{goodDetail.number}}</div>-->
-                        <!--<div class="goodDetailName">{{goodDetail.homeName}}</div>-->
-                        <!--<div style="text-align: justify;font-size: 0.348rem;">-->
-                            <!--<span style="margin-left:-.2rem;color:#FF4B3D;">【{{goodDetail.homeBright}}】</span>-->
-                            <!--{{goodDetail.homeTitle}}-->
-                        <!--</div>-->
-                        <!--<div class="goodDetailColor">{{goodDetail.color}}</div>-->
-                        <!--<div class="goodDetailPaid">￥{{goodDetail.homePrice}}</div>-->
-                    <!--</div>-->
-                    <!---->
-                    <!--<div class="goodDetailValue">-->
-                        <!--<div class="_Value">购买数量：</div>-->
-                        <!--<div class="_cartNumber" style="margin-left: 2rem;">-->
-                            <!--<a href="javascript:;" @click="jian(index)" class="goodDetailReduce">-</a>-->
-                            <!--<input type="text"   v-model="goodDetail.homeValue" readonly="readonly"/>-->
-                            <!--<a href="javascript:;" @click="jia(index)" class="goodDetailAdd">+</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
+              <!--商品详情介绍-->
+                    <div class="goodDetailMain">
+                        <div class="gooDetailNumber">商品编号：{{goodDetail.number}}</div>
+                        <div class="goodDetailName">{{goodDetail.homeName}}</div>
+                        <div style="text-align: justify;font-size: 0.348rem;">
+                            <span style="margin-left:-.2rem;color:#FF4B3D;">【{{goodDetail.homeBright}}】</span>
+                            {{goodDetail.homeTitle}}
+                        </div>
+                        <div class="goodDetailColor">{{goodDetail.color}}</div>
+                        <div class="goodDetailPaid">￥{{goodDetail.homePrice}}</div>
+                    </div>
+
+              <!--商品详情页商品购买数量-->
+                    <div class="goodDetailValue">
+                        <div class="_Value">购买数量：</div>
+                        <div class="_cartNumber" style="margin-left: 2rem;">
+                            <a href="javascript:;" @click="jian(index)" class="goodDetailReduce">-</a>
+                            <input type="text"   v-model="goodDetail.homeValue" readonly="readonly"/>
+                            <a href="javascript:;" @click="jia(index)" class="goodDetailAdd">+</a>
+                        </div>
+                    </div>
 
                     <!--详情蚂蚁支付-->
-                    <!--<Detail-Layer></Detail-Layer>-->
+                    <Detail-Layer></Detail-Layer>
 
                     <!--<div class="goodDetailBox">-->
                         <!--<mt-navbar v-model="selected" >-->
@@ -145,11 +148,11 @@ export default {
     // 获取上个页面的传入的参数id
     var id = this.$route.query.id;
     axios.get("/static/ceshi.json").then(res => {
-
+console.log(res.data.data.home[0])
       for (var i = 0; i < res.data.data.home.length;i++){
         if (res.data.data.home[i].id == id ) {
             _this.goodDetails.push(res.data.data.home[i]);
-            console.log( _this.goodDetails)
+
         }
       }
     });
@@ -164,7 +167,7 @@ export default {
 
   },
   //
-  // methods: {
+  methods: {
   //   addCollection(index) {
   //     this.$store.state.ces=!this.$store.state.ces
   //      var data={
@@ -203,17 +206,18 @@ export default {
   //       MessageBox("提示", "商品已存在购物车");
   //     }
   //   },
-  //   jia: function(index) {
-  //     this.goodDetails[index].homeValue++;
-  //
-  //   },
-  //   jian: function(index) {
-  //     if (this.goodDetails[index].homeValue == 1) {
-  //       this.goodDetails[index].homeValue = 1;
-  //     } else {
-  //       this.goodDetails[index].homeValue--;
-  //     }
-  //   },
+  //   购买数量加减方法
+    jia: function(index) {
+      this.goodDetails[index].homeValue++;
+
+    },
+    jian: function(index) {
+      if (this.goodDetails[index].homeValue == 1) {
+        this.goodDetails[index].homeValue = 1;
+      } else {
+        this.goodDetails[index].homeValue--;
+      }
+    },
   //   //返回上一级
   //   fanhui: function() {
   //     this.$router.go(-1);
@@ -246,7 +250,7 @@ export default {
   //   //   this.$store.commit("addorder", data);
   //   // }
   //   }
-  // }
+  }
 };
 </script>
 

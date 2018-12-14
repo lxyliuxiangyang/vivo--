@@ -11,7 +11,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/', name: 'Home', component: Home },
-    { path: '/home', name: 'Home', component: Home,meta:{index:1} },
+    { path: '/home', name: 'Homes', component: Home,meta:{index:1} },
     {path:'/choose',name:'choose',component:Choose},
     {path:"/parts",name:'parts',component:parts},
     { path: '/classify',name:'classify',component:classify},

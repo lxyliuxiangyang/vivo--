@@ -43,7 +43,7 @@ export default {
     getData:function(){
       var _this=this
       axios.get("/static/ceshi.json").then(function(res){
-        // console.log(res.data.data.home[0])
+        // console.log(res.data.data.home)
         _this.todos=res.data.data.home
       })
 
