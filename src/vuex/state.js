@@ -4,8 +4,10 @@ const state={
     carts:localStorage["carts"]?JSON.parse(localStorage["carts"]): [],
     orders:localStorage["orders"]?JSON.parse(localStorage["orders"]): [],
     todos:localStorage["todos"]?JSON.parse(localStorage["todos"]): [],
+  // 支付数据
     address:localStorage["address"]?JSON.parse(localStorage["address"]): [],
-    nowIndex:0
+    nowIndex:0,
+    ces:false
 }
 
 export default state

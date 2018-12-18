@@ -5,7 +5,8 @@ import Choose from '@/pages/choose'
 import parts from '@/pages/parts'
 import classify from "@/pages/classify/classify"
 import goodDetail from '@/pages/detail/goodDetail'
-import success from '../common/success'
+import change from '@/pages/detail/Change'
+import pay from "@/pages/pay/pay"
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +22,12 @@ export default new Router({
       component: goodDetail,
       meta:{index:0}
     },
+    { path: '/change', name: 'change', component: change },
+    {
+      path: '/pay',
+      name: 'pay',
+      component:pay
+    }
 
 
   ],

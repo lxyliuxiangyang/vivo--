@@ -4,6 +4,7 @@
   <div class="calssify-con" >
         <div class="calssify-left" ref="wrapper">
             <ul class="calssify-left-ul" >
+              <!--默认index是0-->
                 <li v-for="(list,index) in left" :key="index" @click="qiehuan(index)" :class="{active:index===classifyIndex}">
                     {{list.name}}
                 </li>

@@ -36,63 +36,73 @@
 
                     <!--详情蚂蚁支付-->
                     <Detail-Layer></Detail-Layer>
+                  <!--详情参数-->
+                    <div class="goodDetailBox">
+                        <mt-navbar v-model="selected" >
+                            <mt-tab-item id="tab-container1">图文详情</mt-tab-item>
+                            <mt-tab-item id="tab-container2">参数</mt-tab-item>
+                        </mt-navbar>
 
-                    <!--<div class="goodDetailBox">-->
-                        <!--<mt-navbar v-model="selected" >-->
-                            <!--<mt-tab-item id="tab-container1">图文详情</mt-tab-item>-->
-                            <!--<mt-tab-item id="tab-container2">参数</mt-tab-item>-->
-                        <!--</mt-navbar>-->
 
+                        <mt-tab-container v-model="selected" swipeable>
+                            <mt-tab-container-item id="tab-container1">
+                               <div class="goodDetailImg">
+                                   <p v-for="Image in goodDetail.Images">
+                                       <img v-bind:src="Image.one" alt="详情图片">
+                                    </p>
+                                </div>
 
-                        <!--<mt-tab-container v-model="selected" swipeable>-->
-                            <!--<mt-tab-container-item id="tab-container1">-->
-                               <!--<div class="goodDetailImg">-->
-                                   <!--<p v-for="Image in goodDetail.Images">-->
-                                       <!--<img v-bind:src="Image.one" alt="详情图片">-->
-                                    <!--</p>-->
-                                <!--</div>-->
-                            <!--</mt-tab-container-item>-->
+                            </mt-tab-container-item>
 
-                            <!--<mt-tab-container-item id="tab-container2">-->
-                                <!--<div class="peizhi" v-html="goodDetail.homePeizhi"></div>-->
-                            <!--</mt-tab-container-item>-->
-                        <!--</mt-tab-container>-->
+                            <mt-tab-container-item id="tab-container2">
+                                <div class="peizhi" v-html="goodDetail.homePeizhi"></div>
+                            </mt-tab-container-item>
+                        </mt-tab-container>
 
-                    <!--</div>-->
-                    <!--<div class="goodDetailFooter">-->
-                        <!--<div class="left">-->
-                            <!--<div class="cart">-->
-                                <!--<div class="cartlength">{{cartlength}}</div>-->
-                                <!--<img src="http://p6563v2ck.bkt.clouddn.com/%E8%B4%AD%E7%89%A9%E8%BD%A6.png" >-->
-                                <!--<span>购物车</span>-->
-                            <!--</div>-->
-                            <!--<div class="collection" >-->
-                                <!--<div class="collection-box" @click="addCollection(goodDetail)"  v-show="!$store.state.ces">-->
-                                    <!--<i class="iconfont icon-collection"></i>-->
-                                    <!--<span>收藏</span>-->
-                                <!--</div>-->
-                                <!--<div class="collection-box" @click="addCollection(goodDetail)"  v-show="$store.state.ces">-->
-                                    <!--<i class="iconfont icon-shoucangxuanzhong1" style="color:red"></i>-->
-                                    <!--<span style="color:red">取消</span>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="shop">-->
-                                <!--<img src="http://p6563v2ck.bkt.clouddn.com/%E5%BA%97%E9%93%BA_2.png" >-->
-                              <!--<i class="iconfont icon-xuanzekuangxuanzhong" v-show="!$store.state.collection"></i>-->
-                              <!--<i class="iconfont icon-xuanzekuangxuanzhong" v-show="$store.state.collection" style="color:red"></i>-->
-                              <!--<span>店铺</span>-->
-                              <!--</div>-->
-                              <!--</div>-->
-                              <!--<div class="rigth">-->
-                              <!--<div class="add">-->
-                              <!--<a href="javascript:void(0);" @click="add(goodDetail)">加入购物车</a>-->
-                              <!--</div>-->
-                              <!--<div class="purchase">-->
-                              <!--<a href="javascript:void(0);" @click="pay(goodDetail.id,goodDetail.homeValue)">提交订单</a>-->
-                              <!--</div>-->
-                              <!--</div>-->
+                    </div>
+                  <!--详情页底部-->
 
-                    <!--</div>-->
+                    <div class="goodDetailFooter">
+
+                        <div class="left">
+                          <!--购物车-->
+                            <div class="cart">
+                                <div class="cartlength">{{cartlength}}</div>
+                                <img src="http://p6563v2ck.bkt.clouddn.com/%E8%B4%AD%E7%89%A9%E8%BD%A6.png" >
+                                <span>购物车</span>
+                            </div>
+                          <!--收藏-->
+                            <div class="collection" >
+                                <div class="collection-box" @click="addCollection(goodDetail)"  v-show="!ces">
+                                    <i class="iconfont icon-collection"></i>
+                                    <span>收藏</span>
+                                </div>
+                                <div class="collection-box" @click="addCollection(goodDetail)"  v-show="ces">
+                                    <i class="iconfont icon-shoucangxuanzhong1" style="color:red"></i>
+                                    <span style="color:red">取消</span>
+                                </div>
+                            </div>
+                              <!--待修改-->
+                            <div class="shop">
+                              <img src="http://p6563v2ck.bkt.clouddn.com/%E5%BA%97%E9%93%BA_2.png" >
+                              <i class="iconfont icon-xuanzekuangxuanzhong" v-show="false"></i>
+                              <i class="iconfont icon-xuanzekuangxuanzhong" v-show="true" style="color:red"></i>
+                              <span>店铺</span>
+                              </div>
+
+                              </div>
+                      <!--右侧-->
+                        <div class="rigth">
+                          <!--添加购物车-->
+                              <div class="add">
+                              <a href="javascript:void(0);" @click="add(goodDetail)">加入购物车</a>
+                              </div>
+                              <div class="purchase">
+                              <a href="javascript:void(0);" @click="pay(goodDetail.id,goodDetail.homeValue)">提交订单</a>
+                              </div>
+                              </div>
+                    </div>
+
 
                 </li>
             </ul>
@@ -101,13 +111,16 @@
 </template>
 
 <script >
+  // 引入min-ui的各组件
 import { Toast,MessageBox,Navbar,TabItem,TabContainer,TabContainerItem } from "mint-ui";
-import { mapGetters, mapMutations } from "vuex";
+    // vuex引入映射
+import { mapGetters, mapMutations, mapState } from "vuex";
 import DetailHeader from "./component/DetailHeader";
 import DetailLayer from "./component/DetailLayer";
 import axios from "axios";
 export default {
   name: "goodDetail",
+  // 原型上的数据访问时要加this
   data() {
     return {
       active: "1",
@@ -121,40 +134,45 @@ export default {
     DetailHeader,
     DetailLayer
   },
-  // computed: {
-  //   paid: function() {
-  //     var paid = 0;
-  //     for (var i in this.goodDetails) {
-  //       paid += this.goodDetails[i].value * this.goodDetails[i].price;
-  //     }
-  //     return paid;
-  //   }
-  // },
-  // computed: {
-  //   ...mapGetters(
-  //       ["this.$store.state.carts"],
-  //       ["this.$store.state.todos"],
-  //       ["this.$store.state.collection"],
-  //       ["this.$store.state.ces"]
-  //   )
-  // },
-  // mounted() {
-  //   if (this.$store.state.carts != undefined) {
-  //     this.cartlength = this.$store.state.carts.length;
-  //   }
-  // },
+      // 计算属性只能有一个
+    computed: {
+    // 引入
+    ...mapState(
+        // ["this.$store.state.carts"],
+        ["todos","ces",'collections','carts'],
+        // ["this.$store.state.collection"],
+
+    ),
+   paid: function() {
+     var paid = 0;
+     for (var i in this.goodDetails) {
+       paid += this.goodDetails[i].homeValue * this.goodDetails[i].homePrice;
+     }
+     return paid;
+   }
+  },
+
+  mounted() {
+    if (this.$store.state.carts != undefined) {
+      this.cartlength = this.$store.state.carts.length;
+    }
+
+  },
+
   created() {
     var _this = this;
     // 获取上个页面的传入的参数id
     var id = this.$route.query.id;
     axios.get("/static/ceshi.json").then(res => {
-console.log(res.data.data.home[0])
+      console.log(res.data.data.home[1])
       for (var i = 0; i < res.data.data.home.length;i++){
         if (res.data.data.home[i].id == id ) {
             _this.goodDetails.push(res.data.data.home[i]);
 
         }
+
       }
+
     });
 
     axios.get("/static/ceshi.json").then(res => {
@@ -168,50 +186,56 @@ console.log(res.data.data.home[0])
   },
   //
   methods: {
-  //   addCollection(index) {
-  //     this.$store.state.ces=!this.$store.state.ces
-  //      var data={
-  //          id:index.id,
-  //          img:index.homeImg,
-  //          name:index.homeName,
-  //          price:index.homePrice
-  //      }
-  //       this.$stor.dispatch("setGoods",data)
-  //   },
-  //   // 点击按钮时，首先判断该商品是否在购物车已存在，如果存在则不再加入
-  //   add: function(index) {
-  //       console.log(index)
-  //     var idExist = this.$store.state.carts.find(todo => {
-  //       return todo.id == index.id;
-  //     });
-  //
-  //     if (!idExist) {
-  //       var data = {
-  //         id:index.id,
-  //         name:index.homeName,
-  //         price:index.homePrice,
-  //         value:index.homeValue,
-  //         img:index.homeImg,
-  //         danx1uan: ""
-  //       };
-  //       this.$store.dispatch('setCart', data);
-  //       // this.$store.commit("SET_CARTS",data);
-  //       this.cartlength = this.$store.state.carts.length;
-  //       Toast({
-  //         message: "加入购物车成功！",
-  //         iconClass: "iconfont icon-goumaichenggong-copy",
-  //         duration: 950
-  //       });
-  //     } else {
-  //       MessageBox("提示", "商品已存在购物车");
-  //     }
-  //   },
-  //   购买数量加减方法
-    jia: function(index) {
-      this.goodDetails[index].homeValue++;
-
+    addCollection(index) {
+      this.$store.state.ces=!this.$store.state.ces
+       var data={
+           id:index.id,
+           img:index.homeImg,
+           name:index.homeName,
+           price:index.homePrice
+       }
+        this.$store.dispatch("setGoods",data)
     },
-    jian: function(index) {
+
+  //   // 点击按钮时，首先判断该商品是否在购物车已存在，如果存在则不再加入
+  //   添加购物车功能
+           add: function(index) {
+        console.log(index.id);
+        // es6新写法find函数，注意参数如果没有找到就是undefined
+      var idExist = this.$store.state.carts.find(todo => {
+        return todo.id == index.id;
+      });
+
+      console.log(this.$store.state.carts)
+
+      if (!idExist) {
+        var data = {
+          id:index.id,
+          name:index.homeName,
+          price:index.homePrice,
+          value:index.homeValue,
+          img:index.homeImg,
+          danx1uan: ""
+        };
+        this.$store.dispatch('setCart', data);
+        // this.$store.commit("SET_CARTS",data);
+        this.cartlength = this.$store.state.carts.length;
+        Toast({
+          message: "加入购物车成功！",
+          iconClass: "iconfont icon-goumaichenggong-copy",
+          duration: 950
+        });
+      } else {
+        MessageBox("提示", "商品已存在购物车");
+      }
+    },
+
+  //   购买数量加减方法
+             jia: function(index) {
+        this.goodDetails[index].homeValue++;
+
+      },
+              jian: function(index) {
       if (this.goodDetails[index].homeValue == 1) {
         this.goodDetails[index].homeValue = 1;
       } else {
@@ -219,37 +243,37 @@ console.log(res.data.data.home[0])
       }
     },
   //   //返回上一级
-  //   fanhui: function() {
-  //     this.$router.go(-1);
-  //   },
-  //   pay: function(id,value) {
-  //       console.log(value)
-  //       this.$router.push({
-  //           path:"pay",
-  //           query:{
-  //               id:id,
-  //               value:value
-  //           }
-  //       })
-  //       // Toast({
-  //       //     message: `成功支付了${this.paid}元`,
-  //       //     iconClass: "iconfont icon-goumaichenggong",
-  //       //     duration: 750
-  //       // });
-  //     // alert(`成功支付了${this.paid}元`)
-  //   //   var data = {
-  //   //     id: this.goodDetails[index].id,
-  //   //     name: this.goodDetails[index].homeName,
-  //   //     price: this.goodDetails[index].homePrice,
-  //   //     image: this.goodDetails[index].homeImg,
-  //   //     value: this.goodDetails[index].homeValue,
-  //       // order: this.goodDetails[index].order,
-  //       // color: this.goodDetails[index].color,
-  //       // number: this.goodDetails[index].number
-  //   //   };
-  //   //   this.$store.commit("addorder", data);
-  //   // }
-  //   }
+            fanhui: function() {
+      this.$router.go(-1);
+    },
+    pay: function(id,value) {
+        console.log(value)
+        this.$router.push({
+            path:"pay",
+            query:{
+                id:id,
+                value:value
+            }
+        })
+        // Toast({
+        //     message: `成功支付了${this.paid}元`,
+        //     iconClass: "iconfont icon-goumaichenggong",
+        //     duration: 750
+        // });
+      // alert(`成功支付了${this.paid}元`)
+      // var data = {
+      //   id: this.goodDetails[index].id,
+      //   name: this.goodDetails[index].homeName,
+      //   price: this.goodDetails[index].homePrice,
+      //   image: this.goodDetails[index].homeImg,
+      //   value: this.goodDetails[index].homeValue,
+      //   order: this.goodDetails[index].order,
+      //   color: this.goodDetails[index].color,
+      //   number: this.goodDetails[index].number
+      // };
+      // this.$store.commit("addorder", data);
+
+    }
   }
 };
 </script>
