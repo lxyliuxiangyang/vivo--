@@ -143,6 +143,7 @@ export default {
         // ["this.$store.state.collection"],
 
     ),
+      // VUE new实例代替了所有的属性和方法 也就是 vm.a=vm.$data.a=this.a
    paid: function() {
      var paid = 0;
      for (var i in this.goodDetails) {

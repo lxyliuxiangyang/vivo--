@@ -25,8 +25,8 @@
                         <!-- <span>颜色：冰钻黑</span> -->
                         <span class="price">¥ {{list.homePrice}}</span>
                     </p>
-
                 </p>
+
             </div>
 
             <div class="pay-shop-invoice">
@@ -399,6 +399,7 @@ export default {
       value:0
     };
   },
+
   components: {
     PayHeader
   },
@@ -417,6 +418,8 @@ export default {
     invoiceClick(index) {
       this.invoiceIndex = index;
     },
+
+    //跳转页面success 并设置缓存数据
     addOrder(id, index) {
       if (id.text == undefined) {
         Toast({
@@ -434,8 +437,11 @@ export default {
           listname: this.lists[index].name,
           value: this.$route.query.value
         };
+
         this.$store.dispatch("setOrders", data);
+
         var _this = this;
+        // 多次定时器
         var time = setInterval(function() {
           _this.$router.push({
             path: "success"
@@ -445,11 +451,13 @@ export default {
       }
     }
   },
+  // 钩子函数获取数据
   created() {
     var _this = this;
     var id = this.$route.query.id;
    this.value = this.$route.query.value;
     axios.get("/static/ceshi.json").then(function(res) {
+
       for (var i = 0; i < res.data.data.set.length; i++) {
         if (res.data.data.set[i].id == id) {
           _this.pay.push(res.data.data.set[i]);
@@ -457,6 +465,7 @@ export default {
       }
     });
     axios.get("/static/ceshi.json").then(function(res) {
+      console.log(res.data.data.home[0])
       for (var i = 0; i < res.data.data.home.length; i++) {
         if (res.data.data.home[i].id == id) {
           _this.pay.push(res.data.data.home[i]);

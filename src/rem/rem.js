@@ -27,7 +27,8 @@
     if (e.persisted) {
       setRemUnit()
     }
-  })
+  });
+
 
   // detect 0.5px supports
   if (dpr >= 2) {
@@ -41,5 +42,6 @@
     }
     docEl.removeChild(fakeBody)
   }
-}(window, document))
+}(window, document));
 
+  // 自执行函数直接引入 传参数jq写法

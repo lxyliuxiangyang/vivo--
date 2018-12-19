@@ -2,7 +2,7 @@
 <div>
 <Classify-Header title="商品分类"></Classify-Header>
   <div class="calssify-con" >
-        <div class="calssify-left" ref="wrapper">
+        <div class="calssify-left " ref="wrapper" >
             <ul class="calssify-left-ul" >
               <!--默认index是0-->
                 <li v-for="(list,index) in left" :key="index" @click="qiehuan(index)" :class="{active:index===classifyIndex}">
@@ -11,7 +11,7 @@
             </ul>
         </div>
     <!--右侧-->
-        <div class="calssify-rigth" ref="wrapper2">
+        <div class="calssify-rigth " ref="wrapper2" >
             <ul class="calssify-left-ul">
                 <li v-for="(list,index) in right.rigth_data" :key="index" @click="goDetails(list.id)">
                      <img v-lazy="list.img">
@@ -32,7 +32,9 @@ import ClassifyHeader from "../../common/headerone";
 import footer from "../../pages/footer";
 import axios from "axios";
 import { mapGetters } from "vuex";
+import BScroll from 'better-scroll'
 export default {
+
   data() {
     return {
       left: [],
@@ -47,18 +49,20 @@ export default {
     "v-footer": footer,
     ClassifyHeader
   },
-  //    mounted(){
-  //       this.$nextTick(() => {
-  //         this.scroll = new BScroll(this.$refs.wrapper, {})
-  //         this.scroll = new BScroll(this.$refs.wrapper2, {})
-  //       })
-  //   },
+  // 加上点击事件就可以跳转了滚动条
+     mounted(){
+        this.$nextTick(() => {
+          this.scroll = new BScroll(this.$refs.wrapper, {click:true})
+          this.scroll = new BScroll(this.$refs.wrapper2, {click:true})
+        })
+    },
   // computed计算属性
   computed: {
     ...mapGetters(["this.$store.state.sindex"])
   },
   created() {
     var _this = this;
+
   axios.get("/static/ceshi.json").then(function(res) {
     // console.log(res)
     _this.left = res.data.data.classify.left;
@@ -91,7 +95,9 @@ export default {
     background: #ffffff;
     color: #199cfe;
 }
-
+    /*flex布局
+    要以父元素为基础
+    */
 .calssify-con {
     display: flex;
     overflow: hidden;
@@ -100,7 +106,7 @@ export default {
     top: 0;
     bottom: 0;
     padding-top: 1.45rem;
-
+/*上边有一个固定定位*/
     .calssify-left {
         flex: 0 0 2.9rem;
         width: 4rem;
@@ -119,7 +125,7 @@ export default {
 
     .calssify-rigth {
         flex: 1;
-        height: 100%;
+        height: 90%;
         background: white;
         margin-bottom: 1.51rem;
 
