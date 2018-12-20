@@ -36,10 +36,10 @@
                         <div v-show="invoiceIndex===0">
                             <p>*请输入发票抬头:</p>
                             <input type="text" id="input" v-model="list.text" placeholder="请输入发票信息">
-                            
+
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                        <div v-show="listIndex===2" class="pay-fs-2-2-3">货到再付款，支持现金交易</div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="pay-shop-liuyan">
@@ -69,10 +69,10 @@
                     <p>运费：0.00</p>
                     <p>优惠：¥0.00</p>
                     <p>赠送积分：{{$route.query.value*list.homePrice}}</p>
-                   
+
                 </div>
             </div>
-           
+
             <!-- <span>{{list.id}}</span>
             <span>{{list.homeName}}</span> -->
 

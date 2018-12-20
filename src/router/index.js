@@ -7,6 +7,12 @@ import classify from "@/pages/classify/classify"
 import goodDetail from '@/pages/detail/goodDetail'
 import change from '@/pages/detail/Change'
 import pay from "@/pages/pay/pay"
+import success from '@/common/success'
+import order from '@/pages/order'
+import news from "@/pages/news/news"
+import newsDetail from "@/pages/news/newsDetail"
+import my from "@/pages/my/my"
+import author from"@/pages/author"
 Vue.use(Router)
 
 export default new Router({
@@ -27,7 +33,13 @@ export default new Router({
       path: '/pay',
       name: 'pay',
       component:pay
-    }
+    },
+    {path :'/success', name:"success",component:success},
+    {path :'/order',name:'order',component:order},
+    {path:'/news',name:'news',component:news},
+    {path:'/newsDetail',name:"newsDetail",component:newsDetail},
+    {path :'/my', name:"my",component:my},
+    {path :'/author', name:"author",component:author},
 
 
   ],

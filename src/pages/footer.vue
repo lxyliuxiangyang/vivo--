@@ -25,7 +25,7 @@
         </div>
         <span>动态</span>
       </router-link>
-
+<!--就是点击li也还跳转-->
       <router-link to="/my" tag="li">
         <div class="index">
           <i class="iconfont icon-wode-" style="color:#179dfe" v-if="active ==='my'"></i>

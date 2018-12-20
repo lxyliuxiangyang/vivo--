@@ -3,15 +3,16 @@
 <Classify-Header title="商品分类"></Classify-Header>
   <div class="calssify-con" >
         <div class="calssify-left " ref="wrapper" >
-            <ul class="calssify-left-ul" >
-              <!--默认index是0-->
-                <li v-for="(list,index) in left" :key="index" @click="qiehuan(index)" :class="{active:index===classifyIndex}">
-                    {{list.name}}
-                </li>
-            </ul>
-        </div>
+    <ul class="calssify-left-ul" >
+      <!--默认index是0-->
+      <li v-for="(list,index) in left" :key="index" @click="qiehuan(index)" :class="{active:index===classifyIndex}">
+        {{list.name}}
+      </li>
+    </ul>
+  </div>
     <!--右侧-->
-        <div class="calssify-rigth " ref="wrapper2" >
+        <div class="calssify-rigth "ref="wrapper2" >
+          <!--vue中获取节点-->
             <ul class="calssify-left-ul">
                 <li v-for="(list,index) in right.rigth_data" :key="index" @click="goDetails(list.id)">
                      <img v-lazy="list.img">
@@ -60,6 +61,7 @@ export default {
   computed: {
     ...mapGetters(["this.$store.state.sindex"])
   },
+  // 钩子函数craated 和 mounted不同初始化周期不一样
   created() {
     var _this = this;
 
@@ -106,7 +108,7 @@ export default {
     top: 0;
     bottom: 0;
     padding-top: 1.45rem;
-/*上边有一个固定定位*/
+/*上边有一个固定定位 flex 最后一个值是重新定义宽高*/
     .calssify-left {
         flex: 0 0 2.9rem;
         width: 4rem;
@@ -122,7 +124,7 @@ export default {
             text-align: center;
         }
     }
-
+/*父元素和子元素各有六个属性*/
     .calssify-rigth {
         flex: 1;
         height: 90%;
@@ -130,7 +132,7 @@ export default {
         margin-bottom: 1.51rem;
 
         ul {
-            display: flex;
+            display: flex ;
             flex-wrap: wrap;
 
             li {
@@ -157,4 +159,5 @@ export default {
         }
     }
 }
+//  移动端的rem布局
 </style>
