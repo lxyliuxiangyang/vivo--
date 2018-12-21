@@ -13,6 +13,10 @@ import news from "@/pages/news/news"
 import newsDetail from "@/pages/news/newsDetail"
 import my from "@/pages/my/my"
 import author from"@/pages/author"
+import cart from '@/pages/cart/cart'
+import address from '@/pages/address'
+import MyCollection from "../pages/my/MyCollection";
+import add_address from '@/pages/add_address'
 Vue.use(Router)
 
 export default new Router({
@@ -40,8 +44,10 @@ export default new Router({
     {path:'/newsDetail',name:"newsDetail",component:newsDetail},
     {path :'/my', name:"my",component:my},
     {path :'/author', name:"author",component:author},
-
-
+    {path :'/cart', name:"cart",component:cart},
+    {path :'/mycollection', name:"collection",component:MyCollection},
+    {path :'/address', name:"address",component:address},
+    {path :'/add_address', name:"add_address",component:add_address},
   ],
   //路由切换页面始终回到最顶部
   // scrollBehavior(to, from, savedPosition) {

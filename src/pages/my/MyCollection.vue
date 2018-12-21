@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import CollectionHeader from "../../common/Header";
+import CollectionHeader from "../../common/headerone";
 import { mapState, mapMutations, mapGetters } from "vuex";
 import { MessageBox } from "mint-ui";
 export default {
@@ -78,6 +78,7 @@ export default {
     CollectionHeader
   },
   methods: {
+    // 调用方法不能直接传参数
     ...mapMutations(["del", "cancel"]),
     btn(index) {
       this.collectionIndex = index;
